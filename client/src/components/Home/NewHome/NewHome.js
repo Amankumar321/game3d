@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { showLoginComponent } from '../../../utils/functions/showLoginComponent';
 import SoloPlay from '../../SoloPlay/SoloPlay';
 import { useState } from 'react';
-import HomeCover from '../../HomeCover/HomeCover';
 
 const NewHome = () => {
     const classes = useStyles()
