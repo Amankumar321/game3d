@@ -3,6 +3,7 @@
 Live Demo - https://game3d.netlify.app
 
 Tech stack used - MERN (MongoDb, Expressjs, Reactjs, Nodejs)
+Other libraries - Redux, socket-io
 
 # Features
 
