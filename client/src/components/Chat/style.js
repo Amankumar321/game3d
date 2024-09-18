@@ -1,50 +1,50 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@mui/styles/index.js';
 
 export default makeStyles((theme) => ({
     mainDiv: {
-        height: '100%',
-        width: '100%',
-        backgroundColor: '#282828',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
+        height: '100% !important',
+        width: '100% !important',
+        backgroundColor: '#282828 !important',
+        display: 'flex !important',
+        flexDirection: 'column !important',
+        alignItems: 'center !important',
     },
     domain: {
-        marginTop: '90px',
-        display: 'flex',
-        marginBottom: '20px',
-        height: '28px',
+        marginTop: '90px !important',
+        display: 'flex !important',
+        marginBottom: '20px !important',
+        height: '28px !important',
         [theme.breakpoints.down('xs')]: {
-             
+            // Add any responsive styles here if needed
         },  
     },
     domainName: {
-        color: '#e2e2e2',
-        padding: '4px 8px',
-        margin: '-2px 4px',
-        cursor: 'pointer',
-        letterSpacing: '0.6px',
+        color: '#e2e2e2 !important',
+        padding: '4px 8px !important',
+        margin: '-2px 4px !important',
+        cursor: 'pointer !important',
+        letterSpacing: '0.6px !important',
         '&:hover': {
-            color: 'white',
+            color: 'white !important',
         },
-        zIndex: 20,
+        zIndex: '20 !important',
     },
     chatBox: {
-        backgroundColor: '#282828',
-        width: '90%',
-        flexGrow: 1,
-        overflow: 'hidden',
+        backgroundColor: '#282828 !important',
+        width: '90% !important',
+        flexGrow: '1 !important',
+        overflow: 'hidden !important',
     },
     bottomChat: {
-        width: '100%',
-        height: '20px',
-        backgroundColor: '#282828',
+        width: '100% !important',
+        height: '20px !important',
+        backgroundColor: '#282828 !important',
     },
     underline: {
-        marginTop: '8px',
-        width: '100%',
-        height: '2px',
-        borderRadius: '1px',
-        backgroundColor: '#e2e2e2',
+        marginTop: '8px !important',
+        width: '100% !important',
+        height: '2px !important',
+        borderRadius: '1px !important',
+        backgroundColor: '#e2e2e2 !important',
     }
-}))
+}));

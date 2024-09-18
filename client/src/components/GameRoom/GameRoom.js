@@ -1,20 +1,18 @@
-import { Box, Button, Container, Drawer, Menu, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from '@material-ui/core'
+import { Button, Select, MenuItem, FormControl, InputLabel, Switch, FormControlLabel } from '@mui/material';
 import React from 'react'
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router'
 import { useEffect, useState } from 'react'
-import { useTheme } from '@material-ui/core';
-import Navbar from '../Navbar/Navbar';
-import Game from './Game/Game';
+import Navbar from '../Navbar/Navbar.js';
+import Game from './Game/Game.js';
 import socket, { roomsocket, updateType, publicToggleRoom, playToggleRoom } from '../../utils/socket/main.js';
 import checkAuth from '../../utils/functions/checkAuth.js';
 import useStyles from './style.js'
-import { useDispatch } from 'react-redux';
-import { displayError } from '../../utils/functions/displayError';
+import { displayError } from '../../utils/functions/displayError.js';
 
 
 const GameRoom = () => {
     
-    const history = useHistory()
+    const history = useNavigate()
     const [roomId, setRoomId] = useState(localStorage.getItem('room_id'))
     const [username, setUsername] = useState(localStorage.getItem('username'))
     const [gameType, setGameType] = useState('')
@@ -22,17 +20,16 @@ const GameRoom = () => {
     const [publicStatus, setPublicStatus] = useState(false)
     const [playStatus, setPlayStatus] = useState(false)
     const classes = useStyles()
-    const dispatch = useDispatch()
 
     checkAuth(history)
     if (!roomId) {
-        history.push('/')
+        history('/')
     }
     
     const goHome = () => {
         socket.emit('exitRoom', {})
         localStorage.removeItem('room_id')
-        history.push('/')
+        history('/')
     }
     
     useEffect(() => {

@@ -9,7 +9,7 @@ export const editprofile = (formData, user, router) => async (dispatch) => {
           }
         })
         dispatch({ type: 'EDIT', data })
-        router.push('/')
+        router('/')
     } 
     catch (error) {
       console.log(error)

@@ -1,11 +1,8 @@
 import React from 'react'
-import useStyles from './style'
+import useStyles from './style.js'
 import { useEffect } from 'react'
-import { loadStyles } from '../../utils/functions/loadStyles'
 import { useState } from 'react'
 import Frame from 'react-frame-component'
-import { Suspense, lazy } from 'react'
-
 
 const SoloPlay = (props) => {
     const classes = useStyles()

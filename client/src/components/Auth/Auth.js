@@ -1,18 +1,18 @@
-import { Container, Input, Paper, Button, TextField } from '@material-ui/core'
-import React, { useState, useEffect } from 'react'
+import { Input, Paper, Button } from '@mui/material';
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
-import { signin, signup} from '../../redux/actions/user'
+import { useNavigate } from 'react-router-dom'
+import { signin, signup} from '../../redux/actions/user.js'
 import decode from 'jwt-decode'
 import useStyles from './style.js';
-import { verifyUsername, verifyUserPassword } from '../../utils/functions/verifyInput'
+import { verifyUsername, verifyUserPassword } from '../../utils/functions/verifyInput.js'
 
 const initialState = { username: '', password: '' }
 
 const Auth = () => {
     const [form, setForm] = useState(initialState);
     const dispatch = useDispatch()
-    const history = useHistory()
+    const history = useNavigate()
     const [isSignup, setIsSignup] = useState(false)
     const [user, setUser] = useState(localStorage.getItem('token'))
     const classes = useStyles();

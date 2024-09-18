@@ -1,4 +1,4 @@
-import { displayError } from "./displayError"
+import { displayError } from "./displayError.js"
 
 export const verifyUsername = (query) => {
     if (query.match(/^.{3,22}$/)) {

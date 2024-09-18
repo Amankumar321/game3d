@@ -1,28 +1,26 @@
-import { AppBar, Button, Toolbar, Avatar, Typography, Input, Tabs, Tab, Drawer, TextField, OutlinedInput } from '@material-ui/core'
+import { AppBar, Button, Toolbar, Avatar } from '@mui/material'
 import React from 'react'
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import useStyles from './style'
+import { Link } from 'react-router-dom'
+import useStyles from './style.js'
 import default_avatar from "../../assets/images/default.jpg"
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
-import { logout } from '../../redux/actions/user'
+import { logout } from '../../redux/actions/user.js'
 import decode from 'jwt-decode'
-import Chat from '../Chat/Chat'
+import Chat from '../Chat/Chat.js'
 import { searchUsers } from '../../api/index.js'
-import viewProfile from '../../utils/functions/viewProfile'
-import Auth from '../Auth/Auth'
-import Profile from '../Profile/Profile'
-import ErrorBox from '../ErrorBox/ErrorBox'
-import { showLoginComponent } from '../../utils/functions/showLoginComponent'
+import viewProfile from '../../utils/functions/viewProfile.js'
+import Auth from '../Auth/Auth.js'
+import Profile from '../Profile/Profile.js'
+import ErrorBox from '../ErrorBox/ErrorBox.js'
+import { showLoginComponent } from '../../utils/functions/showLoginComponent.js'
 
 
 const Navbar = () => {
     const [user, setUser] = useState(localStorage.getItem('token'))
     const [username, setUsername] = useState(localStorage.getItem('username'))
     const [avatar, setAvatar] = useState(localStorage.getItem('image'))
-    const history = useHistory()
     const dispatch = useDispatch()
-    const location = useLocation()
     const classes = useStyles()
     const [searchList, setSearchList] = useState([]);
     const [viewUser, setViewUser] = useState('');

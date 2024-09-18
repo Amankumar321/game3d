@@ -1,12 +1,13 @@
-import { displayError } from '../functions/displayError';
+import { displayError } from '../functions/displayError.js';
+import { io } from 'socket.io-client'
 
 const username = localStorage.getItem('username')
 const roomId = localStorage.getItem('room_id')
 var publicStatus;
 
-const io = require('socket.io-client')
+// const io = require('socket.io-client')
 
-const socket = io.connect('https://game3d.onrender.com')
+const socket = io.connect('http://localhost:5000')
 
 export const globalsocket = () => {
     socket.on('connect', () => {

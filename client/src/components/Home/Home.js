@@ -1,18 +1,15 @@
 import React from 'react'
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../Navbar/Navbar.js';
 import { useState } from 'react'
-import NewHome from './NewHome/NewHome';
-import ProfileHome from './ProfileHome/ProfileHome';
-import { Container } from '@material-ui/core';
-import { useHistory } from 'react-router-dom';
-import useStyles from './style'
+import NewHome from './NewHome/NewHome.js';
+import ProfileHome from './ProfileHome/ProfileHome.js';
+import { Container } from '@mui/material';
+import useStyles from './style.js'
 
 const Home = () => {
     const [user, setUser] = useState(localStorage.getItem('token'))
-    const history = useHistory()
     const classes = useStyles()
     
-
     return (
         <Container>
           <Navbar />

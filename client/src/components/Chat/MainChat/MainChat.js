@@ -1,14 +1,13 @@
 import React from 'react'
-import { AppBar, Button, Toolbar, Avatar, Typography, Input, FormControlLabel, Checkbox } from '@material-ui/core'
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import useStyles from './style'
+import { Button, Input, FormControlLabel, Checkbox } from '@mui/material';
+import useStyles from './style.js'
 import default_avatar from "../../../assets/images/default.jpg"
 import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
-import socket from '../../../utils/socket/main'
-import { checkroom } from '../../../redux/actions/room'
-import viewProfile from '../../../utils/functions/viewProfile'
-import { verifyRoomId, verifyRoomPassword } from '../../../utils/functions/verifyInput'
+import socket from '../../../utils/socket/main.js'
+import { checkroom } from '../../../redux/actions/room.js'
+import viewProfile from '../../../utils/functions/viewProfile.js'
+import { verifyRoomId, verifyRoomPassword } from '../../../utils/functions/verifyInput.js'
 
 
 const MainChat = ({type, chats, users}) => {
@@ -18,10 +17,6 @@ const MainChat = ({type, chats, users}) => {
     const [roomId, setRoomId] = useState(localStorage.getItem('room_id'))
     const [groupId, setGroupId] = useState(localStorage.getItem('group_id'))
     const classes = useStyles()
-    const history = useHistory()
-    const dispatch = useDispatch()
-    const location = useLocation()
-
 
     const sendMessage = () => {
         if (document.getElementById('chatInput')) {

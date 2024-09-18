@@ -1,25 +1,16 @@
-import { Container, Input, Button, Paper, Avatar, Typography, LinearProgress } from '@material-ui/core'
+import { Avatar, Typography, LinearProgress } from '@mui/material'
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { editprofile } from '../../redux/actions/profile'
-import { useHistory } from 'react-router'
 import { useState } from 'react'
-import Navbar from '../Navbar/Navbar'
-import viewProfile from '../../utils/functions/viewProfile.js'
-import useStyles from './style'
+import useStyles from './style.js'
 import default_avatar from "../../assets/images/default.jpg"
-import default_cover from "../../assets/images/cover.png"
 import { editProfileImage, getProfile, editProfile } from '../../api/index.js'
 import { useEffect } from 'react'
-import EditPopup from './EditPopup/EditPopup'
-import Auth from '../Auth/Auth'
-import { displayError } from '../../utils/functions/displayError'
+import EditPopup from './EditPopup/EditPopup.js'
+import { displayError } from '../../utils/functions/displayError.js'
 
 
 const Profile = (props) => {
-    const dispatch = useDispatch()
     const username = localStorage.getItem('username')
-    const history = useHistory()
     const classes = useStyles()
     const [profile, setProfile] = useState({})
     const [editType, setEditType] = useState('')

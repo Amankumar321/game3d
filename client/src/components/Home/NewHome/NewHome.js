@@ -1,10 +1,9 @@
-import { Button, Typography } from '@material-ui/core';
+import { Button } from '@mui/material';
 import React from 'react'
-import Auth from '../../Auth/Auth';
 import useStyles from './style.js'
 import { useEffect } from 'react';
-import { showLoginComponent } from '../../../utils/functions/showLoginComponent';
-import SoloPlay from '../../SoloPlay/SoloPlay';
+import { showLoginComponent } from '../../../utils/functions/showLoginComponent.js';
+import SoloPlay from '../../SoloPlay/SoloPlay.js';
 import { useState } from 'react';
 
 const NewHome = () => {

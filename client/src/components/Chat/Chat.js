@@ -1,12 +1,8 @@
 import React from 'react'
-import { AppBar, Button, Toolbar, Avatar, Typography, Input, Tabs, Tab, Drawer } from '@material-ui/core'
-import { Link, useHistory, useLocation } from 'react-router-dom'
-import useStyles from './style'
-import default_avatar from "../../assets/images/default.jpg"
-import { useDispatch } from 'react-redux'
+import useStyles from './style.js'
 import { useState, useEffect } from 'react'
-import socket from '../../utils/socket/main'
-import MainChat from './MainChat/MainChat'
+import socket from '../../utils/socket/main.js'
+import MainChat from './MainChat/MainChat.js'
 
 
 var globalchats = []
@@ -23,11 +19,7 @@ const Chat = () => {
     const [avatar, setAvatar] = useState(localStorage.getItem('image'))
     const [domain, setDomain] = useState('')
     const classes = useStyles()
-    const history = useHistory()
-    const dispatch = useDispatch()
-    const location = useLocation()
     const [render, setRender] = useState(0)
-    
     
     const setdomain = (domain) => {
         setDomain(domain)
