@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, Typography } from '@material-ui/core/index.js';
 import React from 'react'
 import useStyles from './style.js'
 import { useEffect } from 'react';

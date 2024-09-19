@@ -1,6 +1,6 @@
-import { AppBar, Button, Toolbar, Avatar } from '@mui/material'
+import { AppBar, Button, Toolbar, Avatar, Typography, Input, Tabs, Tab, Drawer, TextField, OutlinedInput } from '@material-ui/core/index.js'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import useStyles from './style.js'
 import default_avatar from "../../assets/images/default.jpg"
 import { useDispatch } from 'react-redux'
@@ -14,13 +14,16 @@ import Auth from '../Auth/Auth.js'
 import Profile from '../Profile/Profile.js'
 import ErrorBox from '../ErrorBox/ErrorBox.js'
 import { showLoginComponent } from '../../utils/functions/showLoginComponent.js'
+import { BACKEND_URL } from '../../constants.js'
 
 
 const Navbar = () => {
     const [user, setUser] = useState(localStorage.getItem('token'))
     const [username, setUsername] = useState(localStorage.getItem('username'))
     const [avatar, setAvatar] = useState(localStorage.getItem('image'))
+    const history = useHistory()
     const dispatch = useDispatch()
+    const location = useLocation()
     const classes = useStyles()
     const [searchList, setSearchList] = useState([]);
     const [viewUser, setViewUser] = useState('');
@@ -176,7 +179,7 @@ const Navbar = () => {
                         <i className={`${classes.icon} fas fa-bars`} onClick={() => toggleOptions()}></i>
                     </div>
                         { user != null ? (
-                            <Avatar className={classes.avatar} alt={username} src={avatar!== 'null' ? avatar : default_avatar} onClick={handleProfileClick}/>         
+                            <Avatar className={classes.avatar} alt={username} src={avatar!== 'null' ? BACKEND_URL + avatar : default_avatar} onClick={handleProfileClick}/>         
                         ) : (
                             <Button className = {classes.button} onClick={showSignInComponent} variant="contained">Login</Button>
                         )
@@ -221,7 +224,7 @@ const SearchBox = (props) => {
                 searchList.map((e) => {
                     return (
                         <div className={classes.userListItem} onClick={(mouse) => {viewProfile(e.username, mouse)}}>
-                            <img className={classes.userListAvatar} src={e.image !== 'null' ? e.image : default_avatar}></img>
+                            <img className={classes.userListAvatar} src={e.image !== 'null' ? BACKEND_URL + e.image : default_avatar}></img>
                             <div className={classes.userListName}>{e.username}</div>
                         </div>
                     )

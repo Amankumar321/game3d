@@ -1,15 +1,18 @@
-import { Select, MenuItem, Button } from '@mui/material'
+import { Select, MenuItem, Button, TextareaAutosize } from '@material-ui/core/index.js'
 import React, { useState } from 'react'
 import { editProfile } from '../../../api/index.js'
 import useStyles from './style.js'
 import countries from 'i18n-iso-countries'
 import enLocale from 'i18n-iso-countries/langs/en.json'
 import { useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import Profile from '../Profile.js'
 
 const EditPopup = (props) => {
     const classes = useStyles()
     const username = localStorage.getItem('username')
     const [value, setValue] = useState(null)
+    const history = useHistory()
 
     countries.registerLocale(enLocale)
     const countryObj = countries.getNames("en", {select: "official"})

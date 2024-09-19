@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button, Input, FormControlLabel, Checkbox } from '@mui/material';
+import { AppBar, Button, Toolbar, Avatar, Typography, Input, FormControlLabel, Checkbox } from '@material-ui/core/index.js'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import useStyles from './style.js'
 import default_avatar from "../../../assets/images/default.jpg"
 import { useDispatch } from 'react-redux'
@@ -8,6 +9,7 @@ import socket from '../../../utils/socket/main.js'
 import { checkroom } from '../../../redux/actions/room.js'
 import viewProfile from '../../../utils/functions/viewProfile.js'
 import { verifyRoomId, verifyRoomPassword } from '../../../utils/functions/verifyInput.js'
+import { BACKEND_URL } from '../../../constants.js'
 
 
 const MainChat = ({type, chats, users}) => {
@@ -17,6 +19,10 @@ const MainChat = ({type, chats, users}) => {
     const [roomId, setRoomId] = useState(localStorage.getItem('room_id'))
     const [groupId, setGroupId] = useState(localStorage.getItem('group_id'))
     const classes = useStyles()
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const location = useLocation()
+
 
     const sendMessage = () => {
         if (document.getElementById('chatInput')) {
@@ -100,7 +106,7 @@ const MainChat = ({type, chats, users}) => {
                             users.map((e) => {
                                 return (
                                     <div className={classes.userListItem} onClick={(mouse) => {viewProfile(e.uname, mouse)}}>
-                                        <img className={classes.userListAvatar} src={e.image !== 'null' ? e.image : default_avatar}></img>
+                                        <img className={classes.userListAvatar} src={e.image !== 'null' ? BACKEND_URL + e.image : default_avatar}></img>
                                         <div className={classes.userListName}>{e.uname}</div>
                                     </div>
                                 )
@@ -115,7 +121,7 @@ const MainChat = ({type, chats, users}) => {
                             var timestamp = date.toString().slice(4,9) + ', ' + date.toString().slice(16, 21)
                             return(
                                 <div className={classes.chatItem}>
-                                    <img className={classes.chatItemAvatar} src={e.image !== 'null' ? e.image : default_avatar} onClick={(mouse) => {viewProfile(e.username, mouse)}}></img>
+                                    <img className={classes.chatItemAvatar} src={e.image !== 'null' ? BACKEND_URL + e.image : default_avatar} onClick={(mouse) => {viewProfile(e.username, mouse)}}></img>
                                     <div className={classes.content}>
                                         <div className={classes.chatItemDetail}>
                                             <div className={classes.chatItemUser}>{e.username}</div>

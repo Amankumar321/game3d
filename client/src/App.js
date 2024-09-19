@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
-import { Container } from '@mui/material';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Container } from '@material-ui/core';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from './components/Home/Home.js';
 import Profile from './components/Profile/Profile.js';
 import GameRoom from './components/GameRoom/GameRoom.js';
@@ -14,11 +14,11 @@ function App() {
   return(
   <BrowserRouter>
     <Container>
-        <Routes>
-          <Route index element = {<Home/>} />
-          <Route path = '/profile/:user' element = {<Profile/>} />
-          <Route path = '/room/:room' element = {<GameRoom/>} />
-        </Routes>
+        <Switch>
+          <Route path = "/" exact component = {Home} />
+          <Route path = '/profile/:user' exact component = {Profile} />
+          <Route path = '/room/:room' exact component = {GameRoom} />
+        </Switch>
     </Container>
   </BrowserRouter>
   

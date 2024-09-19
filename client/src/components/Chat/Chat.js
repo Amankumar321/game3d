@@ -1,5 +1,9 @@
 import React from 'react'
+import { AppBar, Button, Toolbar, Avatar, Typography, Input, Tabs, Tab, Drawer } from '@material-ui/core/index.js'
+import { Link, useHistory, useLocation } from 'react-router-dom'
 import useStyles from './style.js'
+import default_avatar from "../../assets/images/default.jpg"
+import { useDispatch } from 'react-redux'
 import { useState, useEffect } from 'react'
 import socket from '../../utils/socket/main.js'
 import MainChat from './MainChat/MainChat.js'
@@ -19,7 +23,11 @@ const Chat = () => {
     const [avatar, setAvatar] = useState(localStorage.getItem('image'))
     const [domain, setDomain] = useState('')
     const classes = useStyles()
+    const history = useHistory()
+    const dispatch = useDispatch()
+    const location = useLocation()
     const [render, setRender] = useState(0)
+    
     
     const setdomain = (domain) => {
         setDomain(domain)
@@ -31,6 +39,7 @@ const Chat = () => {
 
     useEffect(() => {
         const handleMsg = ({latestChat, type}) => {
+            console.log(latestChat);
             if (type === 'Global') {
                 var x = globalchats.length >= 20 ? globalchats.shift() : null
                 if (globalchats.indexOf(latestChat) === -1) {

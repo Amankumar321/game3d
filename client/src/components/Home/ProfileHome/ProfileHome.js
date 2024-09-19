@@ -1,7 +1,10 @@
-import { Button, Checkbox, FormControlLabel, Input } from '@mui/material';
+import { Avatar, Button, Checkbox, Container, FormControlLabel, Input, ThemeProvider, Typography } from '@material-ui/core/index.js';
 import React from 'react'
 import { useState, useEffect } from 'react'
+import default_avatar from "../../../assets/images/default.jpg"
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router';
+import { useTheme } from '@material-ui/core/index.js';
 import { createroom } from '../../../redux/actions/room.js';
 import { checkroom } from '../../../redux/actions/room.js'
 import useStyles from './style.js'
@@ -13,7 +16,9 @@ const ProfileHome = () => {
     const [username, setUsername] = useState(localStorage.getItem('username'))
     const [avatar, setAvatar] = useState(localStorage.getItem('image'))
     const [errorMsg, setErrorMsg] = useState('')
+    const history = useHistory()
     const dispatch = useDispatch()
+    const theme = useTheme()
     const classes = useStyles()
     const [joinCheckbox, setJoinCheckbox] = useState(false)
     const [createCheckbox, setCreateCheckbox] = useState(false)

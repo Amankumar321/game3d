@@ -50,7 +50,7 @@ export const editprofileimage = async (req, res) => {
         const folder = type === 'Image' ? 'image' : 'cover'
         const profile = await ProfileModal.findOne({username: user})
         //const localurl = `http://localhost:5001/assets/${folder}/`
-        const url = `https://game3d.onrender.com/assets/${folder}/`
+        const url = `/assets/${folder}/`
         const filename = profile.user_id + '.' + req.file.mimetype.split('/')[1]
 
         unlinkimage(type, profile)

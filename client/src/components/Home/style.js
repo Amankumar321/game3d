@@ -1,10 +1,11 @@
-import { makeStyles } from '@mui/styles/index.js';
+import { makeStyles } from "@material-ui/core/index.js";
+
 
 export default makeStyles((theme) => ({
     home: {
-        position: 'absolute !important',
-        left: '0 !important',
-        width: '100vw !important',
-        height: '100% !important',
+        position: 'absolute',
+        left: 0,
+        width: '100vw',
+        height: '100%',
     },
 }))

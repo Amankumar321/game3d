@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { BACKEND_URL } from '../constants.js';
 
-const API = axios.create({ baseURL: 'https://game3d.onrender.com' })
+const API = axios.create({ baseURL: BACKEND_URL })
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('token')) {

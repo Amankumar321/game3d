@@ -1,113 +1,112 @@
-import { makeStyles } from '@mui/styles/index.js';
+import { makeStyles } from "@material-ui/core";
 
-const shapeFrame = { 'TheCube': 'square', 'TowerBlock': 'portrait', 'Hextris': 'square' }
+const shapeFrame = {'TheCube': 'square', 'TowerBlock': 'portrait', 'Hextris': 'square'}
 
 const size = {
-    'square': {
-        'xs': { 'width': '90vw !important', 'height': '90vw !important' },
-        'sm': { 'width': '500px !important', 'height': '500px !important' },
-        'md': { 'width': '41vw !important', 'height': '41vw !important' }
-    },
-    'portrait': {
-        'xs': { 'width': '90vw !important', 'height': '120vw !important' },
-        'sm': { 'width': '500px !important', 'height': '550px !important' },
-        'md': { 'width': '40vw !important', 'height': '45vw !important' }
-    },
-    'landscape': {
-        'xs': { 'width': '90vw !important', 'height': '60vw !important' },
-        'sm': { 'width': '700px !important', 'height': '500px !important' },
-        'md': { 'width': '80vw !important', 'height': '60vw !important' }
-    }
+'square': {'xs': {'width': '90vw', 'height': '90vw'} ,
+            'sm': {'width': '500px', 'height': '500px'},
+            'md': {'width': '41vw', 'height': '41vw'}},
+
+'portrait': {'xs': {'width': '90vw', 'height': '120vw'},
+            'sm': {'width': '500px', 'height': '550px'},
+            'md': {'width': '40vw', 'height': '45vw'}},
+
+'landscape': {'xs': {'width': '90vw', 'height': '60vw'},
+            'sm': {'width': '700px', 'height': '500px'},
+            'md': {'width': '80vw', 'height': '60vw'}}
 }
+
 
 export default makeStyles((theme) => ({
     frames: {
-        position: 'relative !important',
-        width: '100% !important',
-        display: 'flex !important',
-        justifyContent: 'space-around !important',
-        flexWrap: 'wrap !important',
-        backgroundColor: '#e2e2e2 !important',
+        position: 'relative',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-around',
+        flexWrap: 'wrap',
+        backgroundColor: '#e2e2e2',
     },
     tagNameOuter: {
-        position: 'absolute !important',
-        top: '28px !important',
-        height: '30px !important',
-        width: '120px !important',
-        minWidth: 'fit-content !important',
-        display: 'flex !important',
-        alignItems: 'center !important',
-        justifyContent: 'center !important',
-        color: '#282828 !important',
-        boxSizing: 'border-box !important',
-        paddingLeft: '20px !important',
-        paddingRight: '20px !important',
-        zIndex: '3 !important',
-        transform: 'skew(-30deg) !important',
-        backgroundColor: '#e2e2e2 !important',
-        borderBottom: '1px solid #aaaaaa !important',
-        borderRight: '1px solid #aaaaaa !important',
+        position: 'absolute',
+        top: '28px',
+        height: '30px',
+        width: '120px',
+        minWidth: 'fit-content',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#282828',
+        boxSizing: 'border-box',
+        paddingLeft: '20px',
+        paddingRight: '20px',
+        zIndex: 3,
+        transform: 'skew(-30deg)',
+        backgroundColor: '#e2e2e2',
+        borderBottom: '1px solid #aaaaaa',
+        borderRight: '1px solid #aaaaaa',
     },
     tagNameInner: {
-        letterSpacing: '0.6px !important',
-        transform: 'skew(30deg) !important',
-        boxSizing: 'border-box !important',
+        letterSpacing: '0.6px',
+        transform: 'skew(30deg)',
+        boxSizing: 'border-box',
     },
     gameFrame: {
-        margin: '20px 10px !important',
-        border: '1px solid #aaaaaa !important',
-        borderRadius: '4px !important',
-        width: '600px !important',
-        height: '600px !important',
-        backgroundColor: '#e2e2e2 !important',
-        left: '0 !important',
-        top: '56px !important',
+        margin: '20px 10px',
+        border: '1px solid #aaaaaa',
+        borderRadius: '4px',
+        width: '600px',
+        height: '600px',
+        backgroundColor: '#e2e2e2',
+        left: 0,
+        top: '56px',
         [theme.breakpoints.up('md')]: {
-            width: props => ((size[shapeFrame[props.type]])['md'])['width'] + ' !important',
-            height: props => ((size[shapeFrame[props.type]])['md'])['height'] + ' !important',
+            width: props => ((size[shapeFrame[props.type]])['md'])['width'],
+            height: props => ((size[shapeFrame[props.type]])['md'])['height'],
         },
         [theme.breakpoints.down('sm')]: {
-            width: props => ((size[shapeFrame[props.type]])['sm'])['width'] + ' !important',
-            height: props => ((size[shapeFrame[props.type]])['sm'])['height'] + ' !important',
+            width: props => ((size[shapeFrame[props.type]])['sm'])['width'],
+            height: props => ((size[shapeFrame[props.type]])['sm'])['height'],
         },
         [theme.breakpoints.down('xs')]: {
-            width: props => ((size[shapeFrame[props.type]])['xs'])['width'] + ' !important',
-            height: props => ((size[shapeFrame[props.type]])['xs'])['height'] + ' !important',
-            top: '46px !important',
+            width: props => ((size[shapeFrame[props.type]])['xs'])['width'],
+            height: props => ((size[shapeFrame[props.type]])['xs'])['height'],
+            top: '46px',
         },
     },
     fullScreenDiv: {
-        position: 'absolute !important',
-        top: '20px !important',
-        right: '10px !important',
-        padding: '8px !important',
-        color: '#282828 !important',
-        boxSizing: 'border-box !important',
-        zIndex: '3 !important',
-        backgroundColor: '#e2e2e2 !important',
-        opacity: '0.8 !important',
-        border: '1px solid #aaaaaa !important',
+        position: 'absolute',
+        top: '20px',
+        right: '10px',
+        padding: '8px',
+        color: '#282828',
+        boxSizing: 'border-box',
+        zIndex: 3,
+        backgroundColor: '#e2e2e2',
+        opacity: 0.8,
+        //borderBottom: '1px solid #aaaaaa',
+        border: '1px solid #aaaaaa',
         '&:hover': {
-            cursor: 'pointer !important',
+            cursor: 'pointer',
         },
     },
     fullScreenIcon: {
-        fontSize: '24px !important',
+        fontSize: '24px',
     },
     minScreenDiv: {
-        position: 'fixed !important',
-        right: '8px !important',
-        top: '76px !important',
-        padding: '8px !important',
-        zIndex: '10 !important',
-        border: '1px solid #aaaaaa !important',
-        opacity: '0.8 !important',
-        boxSizing: 'border-box !important',
+        position: 'fixed',
+        right: '8px',
+        top: '76px',
+        padding: '8px',
+        zIndex: 10,
+        border: '1px solid #aaaaaa',
+        opacity: 0.8,
+        boxSizing: 'border-box',
         [theme.breakpoints.down('xs')]: {
-            top: '66px !important',
+            top: '66px',
         },
         '&:hover': {
-            cursor: 'pointer !important',
+            cursor: 'pointer',
         },
     },
-}));
+}))
+

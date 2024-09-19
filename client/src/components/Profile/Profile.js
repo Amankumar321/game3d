@@ -1,16 +1,26 @@
-import { Avatar, Typography, LinearProgress } from '@mui/material'
+import { Container, Input, Button, Paper, Avatar, Typography, LinearProgress } from '@material-ui/core/index.js'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { editprofile } from '../../redux/actions/profile.js'
+import { useHistory } from 'react-router'
 import { useState } from 'react'
+import Navbar from '../Navbar/Navbar.js'
+import viewProfile from '../../utils/functions/viewProfile.js'
 import useStyles from './style.js'
 import default_avatar from "../../assets/images/default.jpg"
+import default_cover from "../../assets/images/cover.png"
 import { editProfileImage, getProfile, editProfile } from '../../api/index.js'
 import { useEffect } from 'react'
 import EditPopup from './EditPopup/EditPopup.js'
+import Auth from '../Auth/Auth.js'
 import { displayError } from '../../utils/functions/displayError.js'
+import { BACKEND_URL } from '../../constants.js'
 
 
 const Profile = (props) => {
+    const dispatch = useDispatch()
     const username = localStorage.getItem('username')
+    const history = useHistory()
     const classes = useStyles()
     const [profile, setProfile] = useState({})
     const [editType, setEditType] = useState('')
@@ -165,14 +175,14 @@ const Profile = (props) => {
                     <div className={classes.closeProfileBtn}>
                         <i className={`${classes.closeIcon} fas fa-times`} onClick={() => {closeZoomCover()}}></i>
                     </div>
-                    <img className={classes.zoomCover} src={profile.cover !== 'null' ? profile.cover : null}></img>
+                    <img className={classes.zoomCover} src={profile.cover !== 'null' ? BACKEND_URL + profile.cover : null}></img>
                 </div>
                 
                 <div className={classes.zoomAvatarDiv} id='zoomAvatarDiv'>
                     <div className={classes.closeProfileBtn}>
                         <i className={`${classes.closeIcon} fas fa-times`} onClick={() => {closeZoomAvatar()}}></i>
                     </div>
-                    <img id='viewProfileImage' className={classes.zoomAvatar} src={profile.image !== 'null' ? profile.image : default_avatar}></img>
+                    <img id='viewProfileImage' className={classes.zoomAvatar} src={profile.image !== 'null' ? BACKEND_URL + profile.image : default_avatar}></img>
                 </div>
                 
                 <EditPopup type={editType} setNeedUpdate={setNeedUpdate} initial={initial} />
@@ -189,7 +199,7 @@ const Profile = (props) => {
                         <div className={classes.closeProfileBtn}>
                             <i className={`${classes.closeIcon} fas fa-times`} onClick={() => {closeProfilePage()}}></i>
                         </div>
-                        <img id='viewProfileCover' className={classes.coverImg} src={profile.cover !== 'null' ? profile.cover : null} onClick={zoomCover}></img>
+                        <img id='viewProfileCover' className={classes.coverImg} src={profile.cover !== 'null' ? BACKEND_URL + profile.cover : null} onClick={zoomCover}></img>
                         <div className={classes.container}>
                                 {
                                     username === profile.username ? 
@@ -209,7 +219,7 @@ const Profile = (props) => {
                                     </div>
                                     : null
                                 }
-                            <Avatar className={classes.avatar} alt={username} src={profile.image !== 'null' ? profile.image : default_avatar} onClick={zoomAvatar}>
+                            <Avatar className={classes.avatar} alt={username} src={profile.image !== 'null' ? BACKEND_URL + profile.image : default_avatar} onClick={zoomAvatar}>
                             </Avatar>
                             <Typography className={classes.username} variant='h2'>{profile.username}</Typography>  
                         </div>

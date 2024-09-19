@@ -92,7 +92,7 @@ const mainsocket = (io) => {
                 }
 
                 else if (type === 'Room') {
-                    var latestChat = {username, image, text}
+                    var latestChat = {username, image, text, timestamp}
                     io.to(socket.roomId).emit('getMessage', {latestChat, type}) 
                 }
 
